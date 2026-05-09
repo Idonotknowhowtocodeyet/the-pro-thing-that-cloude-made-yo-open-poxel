@@ -1,44 +1,34 @@
-# PRXY — Simple Proxy Server
+# PRXY — Cloudflare Workers Proxy
 
-Zero dependencies. Pure Node.js. Runs anywhere.
+Free. Fast. No server needed.
 
-## Run it locally
+## Deploy in 2 minutes
 
+### Option A: Browser (no install needed)
+1. Go to https://workers.cloudflare.com
+2. Sign up free (no credit card)
+3. Click "Create a Worker"
+4. Delete the default code
+5. Paste the contents of `worker.js`
+6. Click "Save and Deploy"
+7. Done — you get a free URL like `https://prxy.yourname.workers.dev`
+
+### Option B: Wrangler CLI
 ```bash
-node server.js
+npm install -g wrangler
+wrangler login
+wrangler deploy
 ```
 
-Then open http://localhost:3000
-
-## Run it free in the cloud
-
-### Option 1: Railway (easiest)
-1. Go to https://railway.app
-2. Click "New Project" → "Deploy from GitHub repo"
-3. Push these files to a GitHub repo first, then connect it
-4. It auto-detects Node.js and runs `node server.js`
-5. Railway gives you a public URL for free
-
-### Option 2: Render
-1. Go to https://render.com
-2. New → Web Service → connect your GitHub repo
-3. Start command: `node server.js`
-4. Free tier works fine
-
-### Option 3: Glitch (instant, no signup needed)
-1. Go to https://glitch.com/edit/#!/new-project
-2. Drop these files in
-3. Done — instant public URL
+## Free tier limits
+- 100,000 requests/day
+- Runs on 300+ global edge locations
+- No cold starts
 
 ## Usage
+Visit your worker URL, paste any site, hit GO.
 
-Visit your URL and paste any site to proxy it:
-
+Direct API usage:
 ```
-https://your-server.com/proxy?url=https://site-you-want.com
+https://prxy.yourname.workers.dev/proxy?url=https://site.com
 ```
-
-## For gaming
-- Host this on a VPS/cloud server close to your game's servers
-- This lowers the network hops between you and the game
-- Use the proxy URL to access blocked game sites from school/work networks
